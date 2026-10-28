@@ -32,7 +32,7 @@ cp .env.example .env
 | `SUPABASE_URL` | Project Settings -> API -> **Project URL** (`https://xxxx.supabase.co`) |
 | `SUPABASE_PUBLISHABLE_KEY` | Project Settings -> API Keys -> **Publishable key** (`sb_publishable_...`) |
 | `SUPABASE_SERVICE_ROLE_KEY` | Project Settings -> API Keys -> **Secret key** (`sb_secret_...`). Never share it or put it in the frontend. |
-| `FRONTEND_URL` | `http://localhost:5173` while developing |
+| `FRONTEND_URL` | `https://unified-frontend-henna.vercel.app` in production (`http://localhost:5173` locally) |
 
 Use real keys from the same Supabase project as `SUPABASE_URL`; do not leave example or placeholder text in `.env`. The backend accepts current `sb_publishable_...` / `sb_secret_...` keys and legacy `anon` / `service_role` JWT keys.
 
@@ -44,7 +44,7 @@ Supabase -> **SQL Editor** -> New query -> paste, then **Run**:
 
 ### 3. Configure Supabase Auth (dashboard)
 1. **Authentication -> Sign In / Providers -> Email**: **Confirm email** ON.
-2. **Authentication -> URL Configuration**: **Site URL** `http://localhost:5173`; **Redirect URLs** add `http://localhost:5173/email-verified`. (Add your real domain when you go live.)
+2. **Authentication -> URL Configuration**: Set the production **Site URL** to `https://unified-frontend-henna.vercel.app` and add `https://unified-frontend-henna.vercel.app/email-verified` to **Redirect URLs**. For local development, also add `http://localhost:5173` and `http://localhost:5173/email-verified`.
 3. **Email delivery**: Supabase's built-in sender only reaches members of your Supabase organization (2 emails/hour). For any recipient, use **Authentication -> Emails -> SMTP Settings** with Gmail (app password) or a service on your own domain (Resend, Postmark, Brevo).
 
 ### 4. Run
