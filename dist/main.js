@@ -13,7 +13,9 @@ async function bootstrap() {
     const config = app.get(app_config_service_1.AppConfigService);
     app.setGlobalPrefix('api');
     app.use((0, helmet_1.default)());
-    app.enableCors({ origin: config.frontendUrl });
+    app.enableCors({
+        origin: [config.frontendUrl, 'https://unified-frnt.netlify.app'],
+    });
     app.useGlobalPipes(new common_1.ValidationPipe({
         whitelist: true,
         forbidNonWhitelisted: true,

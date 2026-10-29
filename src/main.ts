@@ -11,7 +11,7 @@ async function bootstrap(): Promise<void> {
   app.setGlobalPrefix('api');
   app.use(helmet());
   app.enableCors({
-    origin: [config.frontendUrl, 'https://unified-frontend-henna.vercel.app'],
+    origin: [config.frontendUrl, 'https://unified-frnt.netlify.app'],
   });
   app.useGlobalPipes(
     new ValidationPipe({
